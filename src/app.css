@@ -1,0 +1,197 @@
+:root {
+    --font-serif: 'Piazzolla Variable', 'Piazzolla', serif;
+
+    --colour-ectoplasm-100: rgba(228, 249, 225, 1);
+    --colour-ectoplasm-200: rgba(206, 249, 204, 1);
+    --colour-ectoplasm-300: rgba(179, 248, 175, 1);
+    --colour-ectoplasm-400: rgba(134, 239, 133, 1);
+    --colour-ectoplasm-500: rgba(87, 215, 94, 1);
+    --colour-ectoplasm-600: rgba(60, 195, 74, 1);
+    --colour-ectoplasm-700: rgba(27, 126, 45, 1);
+    --colour-ectoplasm-800: rgba(31, 107, 52, 1);
+    --colour-ectoplasm-900: rgba(8, 75, 26, 1);
+    --colour-ectoplasm-950: rgba(3, 54, 17, 1);
+    --colour-ectoplasm-50: rgba(245, 254, 244, 1);
+    --colour-plum-100: rgba(240, 229, 251, 1);
+    --colour-plum-200: rgba(227, 206, 249, 1);
+    --colour-plum-300: rgba(203, 156, 250, 1);
+    --colour-plum-400: rgba(166, 93, 240, 1);
+    --colour-plum-500: rgba(137, 41, 234, 1);
+    --colour-plum-600: rgba(120, 36, 205, 1);
+    --colour-plum-700: rgba(92, 25, 160, 1);
+    --colour-plum-800: rgba(68, 18, 118, 1);
+    --colour-plum-900: rgba(53, 9, 97, 1);
+    --colour-plum-950: rgba(31, 3, 59, 1);
+    --colour-plum-50: rgba(249, 243, 254, 1);
+    --colour-weezer-100: rgba(211, 237, 246, 1);
+    --colour-weezer-200: rgba(183, 227, 242, 1);
+    --colour-weezer-300: rgba(138, 208, 230, 1);
+    --colour-weezer-400: rgba(74, 189, 225, 1);
+    --colour-weezer-500: rgba(10, 167, 217, 1);
+    --colour-weezer-600: rgba(0, 148, 195, 1);
+    --colour-weezer-700: rgba(4, 119, 164, 1);
+    --colour-weezer-800: rgba(5, 85, 122, 1);
+    --colour-weezer-900: rgba(3, 63, 88, 1);
+    --colour-weezer-950: rgba(2, 40, 55, 1);
+    --colour-weezer-50: rgba(242, 250, 253, 1);
+    --colour-yellow-100: rgba(253, 246, 210, 1);
+    --colour-yellow-200: rgba(250, 237, 171, 1);
+    --colour-yellow-300: rgba(250, 232, 134, 1);
+    --colour-yellow-400: rgba(246, 222, 92, 1);
+    --colour-yellow-500: rgba(234, 206, 57, 1);
+    --colour-yellow-600: rgba(234, 186, 17, 1);
+    --colour-yellow-700: rgba(210, 156, 15, 1);
+    --colour-yellow-800: rgba(148, 100, 29, 1);
+    --colour-yellow-900: rgba(90, 62, 14, 1);
+    --colour-yellow-950: rgba(61, 38, 2, 1);
+    --colour-yellow-50: rgba(255, 252, 238, 1);
+    --colour-orange-100: rgba(253, 224, 212, 1);
+    --colour-orange-200: rgba(253, 205, 189, 1);
+    --colour-orange-300: rgba(249, 172, 148, 1);
+    --colour-orange-400: rgba(248, 138, 105, 1);
+    --colour-orange-500: rgba(249, 116, 76, 1);
+    --colour-orange-600: rgba(243, 74, 22, 1);
+    --colour-orange-700: rgba(203, 61, 18, 1);
+    --colour-orange-800: rgba(137, 42, 14, 1);
+    --colour-orange-900: rgba(105, 30, 8, 1);
+    --colour-orange-950: rgba(61, 17, 3, 1);
+    --colour-orange-50: rgba(254, 243, 239, 1);
+    --colour-red-100: rgba(250, 216, 220, 1);
+    --colour-red-200: rgba(250, 184, 196, 1);
+    --colour-red-300: rgba(249, 159, 170, 1);
+    --colour-red-400: rgba(246, 130, 144, 1);
+    --colour-red-500: rgba(236, 72, 92, 1);
+    --colour-red-600: rgba(236, 31, 56, 1);
+    --colour-red-700: rgba(206, 13, 36, 1);
+    --colour-red-800: rgba(173, 12, 31, 1);
+    --colour-red-900: rgba(134, 8, 23, 1);
+    --colour-red-950: rgba(68, 4, 11, 1);
+    --colour-red-50: rgba(254, 239, 241, 1);
+    --colour-bubblegum-100: rgba(252, 217, 236, 1);
+    --colour-bubblegum-200: rgba(247, 184, 218, 1);
+    --colour-bubblegum-300: rgba(249, 159, 208, 1);
+    --colour-bubblegum-400: rgba(249, 137, 198, 1);
+    --colour-bubblegum-500: rgba(245, 99, 178, 1);
+    --colour-bubblegum-600: rgba(242, 53, 155, 1);
+    --colour-bubblegum-700: rgba(191, 25, 115, 1);
+    --colour-bubblegum-800: rgba(143, 22, 88, 1);
+    --colour-bubblegum-900: rgba(102, 8, 59, 1);
+    --colour-bubblegum-950: rgba(62, 4, 35, 1);
+    --colour-bubblegum-50: rgba(254, 239, 247, 1);
+    --colour-grey-100: rgba(242, 242, 242, 1);
+    --colour-grey-200: rgba(218, 218, 218, 1);
+    --colour-grey-300: rgba(200, 198, 200, 1);
+    --colour-grey-400: rgba(154, 148, 154, 1);
+    --colour-grey-500: rgba(129, 124, 129, 1);
+    --colour-grey-600: rgba(106, 101, 106, 1);
+    --colour-grey-700: rgba(71, 66, 71, 1);
+    --colour-grey-800: rgba(50, 45, 50, 1);
+    --colour-grey-900: rgba(32, 29, 32, 1);
+    --colour-grey-950: rgba(23, 21, 23, 1);
+    --colour-grey-50: rgba(248, 248, 248, 1);
+    --colour-brown-50: rgba(254, 248, 237, 1);
+    --colour-brown-100: rgba(249, 238, 220, 1);
+    --colour-brown-200: rgba(244, 209, 168, 1);
+    --colour-brown-300: rgba(228, 167, 117, 1);
+    --colour-brown-400: rgba(209, 139, 82, 1);
+    --colour-brown-500: rgba(188, 107, 48, 1);
+    --colour-brown-600: rgba(153, 83, 32, 1);
+    --colour-brown-700: rgba(124, 66, 24, 1);
+    --colour-brown-800: rgba(90, 45, 12, 1);
+    --colour-brown-900: rgba(68, 34, 6, 1);
+    --colour-brown-950: rgba(45, 23, 2, 1);
+    --colour-primary-50:  var(--colour-bubblegum-50);
+    --colour-primary-100: var(--colour-bubblegum-100);
+    --colour-primary-200: var(--colour-bubblegum-200);
+    --colour-primary-300: var(--colour-bubblegum-300);
+    --colour-primary-400: var(--colour-bubblegum-400);
+    --colour-primary-500: var(--colour-bubblegum-500);
+    --colour-primary-600: var(--colour-bubblegum-600);
+    --colour-primary-700: var(--colour-bubblegum-700);
+    --colour-primary-800: var(--colour-bubblegum-800);
+    --colour-primary-900: var(--colour-bubblegum-900);
+    --colour-primary-950: var(--colour-bubblegum-950);
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+    margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+    line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+    text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+    color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+    font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+    min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+    scroll-margin-block: 5ex;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-serif);
+    color: var(--colour-grey-950);
+}
