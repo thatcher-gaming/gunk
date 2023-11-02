@@ -100,17 +100,17 @@
     --colour-brown-800: rgba(90, 45, 12, 1);
     --colour-brown-900: rgba(68, 34, 6, 1);
     --colour-brown-950: rgba(45, 23, 2, 1);
-    --colour-primary-50:  var(--colour-bubblegum-50);
-    --colour-primary-100: var(--colour-bubblegum-100);
-    --colour-primary-200: var(--colour-bubblegum-200);
-    --colour-primary-300: var(--colour-bubblegum-300);
-    --colour-primary-400: var(--colour-bubblegum-400);
-    --colour-primary-500: var(--colour-bubblegum-500);
-    --colour-primary-600: var(--colour-bubblegum-600);
-    --colour-primary-700: var(--colour-bubblegum-700);
-    --colour-primary-800: var(--colour-bubblegum-800);
-    --colour-primary-900: var(--colour-bubblegum-900);
-    --colour-primary-950: var(--colour-bubblegum-950);
+    --colour-primary-50:  var(--colour-plum-50);
+    --colour-primary-100: var(--colour-plum-100);
+    --colour-primary-200: var(--colour-plum-200);
+    --colour-primary-300: var(--colour-plum-300);
+    --colour-primary-400: var(--colour-plum-400);
+    --colour-primary-500: var(--colour-plum-500);
+    --colour-primary-600: var(--colour-plum-600);
+    --colour-primary-700: var(--colour-plum-700);
+    --colour-primary-800: var(--colour-plum-800);
+    --colour-primary-900: var(--colour-plum-900);
+    --colour-primary-950: var(--colour-plum-950);
 }
 
 /* Box sizing rules */
@@ -193,5 +193,9 @@ body, html {
 
 body {
     font-family: var(--font-serif);
+    font-variant-numeric: oldstyle-nums proportional-nums; 
+        
     color: var(--colour-grey-950);
+    background-color: var(--colour-grey-50);
+
 }

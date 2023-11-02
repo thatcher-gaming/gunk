@@ -2,7 +2,7 @@
     import "@fontsource-variable/piazzolla/opsz.css";
     import "@fontsource-variable/piazzolla/opsz-italic.css";
     import "../app.css";
-    import Navigation from "$lib/Navigation.svelte";
+    import Navigation from "$lib/Navigation/Navigation.svelte";
 </script>
 
 <Navigation />
