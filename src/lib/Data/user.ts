@@ -6,7 +6,7 @@ const unsensitive_fields = `id, handle, pronouns, bio,
     links, avatar_path, bg_path`
 
 type UserType = User;
-class User {
+export class User {
     constructor(data: UserType) {
         Object.assign(this, data);
     }
@@ -49,10 +49,12 @@ class User {
             SELECT EXISTS(SELECT 1 FROM user WHERE email = ?);
         `);
 
+        stmt.pluck();
         const result = stmt.get(email);
         if (typeof result != "number" || result > 1) {
-            throw "invalid db response";
+            throw new Error("invalid db response");
         }
+
 
         return Boolean(result);
     }
@@ -63,9 +65,10 @@ class User {
             SELECT EXISTS(SELECT 1 FROM user WHERE handle = ?);
         `);
 
+        stmt.pluck();
         const result = stmt.get(handle);
         if (typeof result != "number" || result > 1) {
-            throw "invalid db response";
+            throw new Error("invalid db response");
         }
 
         return Boolean(result);
@@ -76,10 +79,10 @@ class User {
         email: string,
         password: string,
     }) {
-        if (User.handle_is_taken(handle))
-            throw "A user with this username already exists"
         if (User.email_is_used(email))
-            throw "A user with this email address already exists"
+            throw new Error("A user with this email address already exists");
+        if (User.handle_is_taken(handle))
+            throw new Error("A user with this username already exists");
 
         const id = nanoid();
         const hash = await argon2.hash(password);

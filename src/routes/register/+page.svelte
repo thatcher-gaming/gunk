@@ -1,6 +1,8 @@
 <script>
     import OauthButtons from "./_OauthButtons.svelte";
     import RegisterForm from "./_RegisterForm.svelte";
+
+    export let form;
 </script>
 
 <p>oh hey</p>
@@ -21,6 +23,10 @@
 
     <section>
         <h2>or… don't</h2>
+
+        {#if form?.error}
+            <p role="alert" class="error">{form?.error}</p>
+        {/if}
 
         <RegisterForm />
     </section>

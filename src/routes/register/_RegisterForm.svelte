@@ -5,16 +5,20 @@
 
 <form method="post">
     <FormInput label="Username">
-        <input type="text" placeholder="the_grungler" />
+        <input name="username" type="text" placeholder="the_grungler" />
     </FormInput>
     <FormInput label="Email">
-        <input type="email" placeholder="me@gmail.gov" />
+        <input name="email" type="email" placeholder="me@gmail.gov" />
     </FormInput>
     <FormInput
         label="Password"
         flavour_text="at least 8 characters, if you don't mind"
     >
-        <input type="password" placeholder="•••••••••••••••••" />
+        <input
+            name="password"
+            type="password"
+            placeholder="•••••••••••••••••"
+        />
     </FormInput>
 
     <Button type="submit">go crazy aaahh!!!!</Button>

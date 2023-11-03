@@ -26,6 +26,8 @@
 		"@fontsource-variable/piazzolla": "^5.0.18",
 		"argon2": "^0.31.1",
 		"better-sqlite3": "^9.0.0",
-		"nanoid": "^5.0.2"
+		"nanoid": "^5.0.2",
+		"zod": "^3.22.4",
+		"zod-validation-error": "^2.1.0"
 	}
 }

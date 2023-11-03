@@ -4,6 +4,7 @@ CREATE TABLE user (
         length("handle") <= 36
     ),
     password_hash TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
 
     -- profile info
     pronouns TEXT CHECK(
