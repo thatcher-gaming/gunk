@@ -3,6 +3,7 @@ import { fail, redirect } from "@sveltejs/kit";
 import type { Actions } from "./$types";
 import { z } from 'zod';
 import { fromZodError } from 'zod-validation-error';
+import { Session, token_cookie } from "$lib/Data/session";
 
 const schema = z.object({
     username: z.string().min(1),
@@ -11,7 +12,7 @@ const schema = z.object({
 }).required();
 
 export const actions: Actions = {
-    default: async ({ request }) => {
+    default: async ({ request, cookies }) => {
         const data = Object.fromEntries(await request.formData());
 
         const result = schema.safeParse(data);
@@ -33,6 +34,12 @@ export const actions: Actions = {
         } catch (e) {
             return fail(500, { error: (e as Error).message })
         }
+
+        const session_id = Session.create(id);
+        cookies.set(token_cookie, session_id, {
+            path: "/",
+            secure: true,
+        });
 
         throw redirect(303, "/");
     }

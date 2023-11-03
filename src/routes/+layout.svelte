@@ -3,9 +3,11 @@
     import "@fontsource-variable/piazzolla/opsz-italic.css";
     import "../app.css";
     import Navigation from "$lib/Navigation/Navigation.svelte";
+
+    export let data;
 </script>
 
-<Navigation />
+<Navigation handle={data.active_user?.handle} />
 <main>
     <slot />
 </main>
@@ -14,5 +16,7 @@
     main {
         max-width: 64rem;
         margin: 2rem auto;
+
+        padding: 0 .75rem;
     }
 </style>

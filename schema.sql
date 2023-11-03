@@ -18,3 +18,30 @@ CREATE TABLE user (
     bg_path TEXT
 ) STRICT;
 
+CREATE TABLE session (
+    id TEXT PRIMARY KEY NOT NULL,
+    user_id TEXT NOT NULL,
+
+    ttl INTEGER NOT NULL DEFAULT 3600,
+    created TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY(user_id) REFERENCES user(id)
+) STRICT;
+
+CREATE TABLE section (
+    id INTEGER PRIMARY KEY NOT NULL,
+
+
+) STRICT;
+
+CREATE TABLE thread (
+    id TEXT PRIMARY KEY NOT NULL,
+    section_id TEXT NOT NULL,
+    author_id TEXT NOT NULL,
+
+    content TEXT NOT NULL,
+    
+
+    FOREIGN KEY(section_id) REFERENCES section(id),
+    FOREIGN KEY(author_id) REFERENCES user(id)
+) STRICT;
