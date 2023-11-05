@@ -1,6 +1,6 @@
 <script>
     import Button from "$lib/Buttons/Button.svelte";
-    import FormInput from "$lib/Forms/FormInput.svelte";
+    import FormInput from "$lib/Forms/FormField.svelte";
 </script>
 
 <form method="post">

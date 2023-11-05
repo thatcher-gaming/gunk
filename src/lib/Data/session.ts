@@ -25,9 +25,14 @@ export class Session {
         return id;
     }
 
-    static fetch_token_user(token: string): {id: string, handle: string} | undefined {
+    static fetch_token_user(token: string): {
+        id: string,
+        handle: string,
+        is_admin: boolean,
+        is_mod: boolean,
+    } | undefined {
         const stmt = db.prepare(`
-            SELECT U.id, U.handle
+            SELECT U.id, U.handle, U.is_admin, U.is_mod
             FROM session S INNER JOIN user U
             ON S.user_id = U.id
             WHERE S.id = ?;
@@ -38,6 +43,9 @@ export class Session {
         if (!data) {
             return;
         }
+
+        data.is_admin = Boolean(data.is_admin);
+        data.is_mod = Boolean(data.is_mod);
 
         return data;
     }

@@ -1,13 +1,12 @@
 <script lang="ts">
-    import "@fontsource-variable/piazzolla/opsz.css";
-    import "@fontsource-variable/piazzolla/opsz-italic.css";
+    import "@fontsource-variable/commissioner/full.css";
     import "../app.css";
     import Navigation from "$lib/Navigation/Navigation.svelte";
 
     export let data;
 </script>
 
-<Navigation handle={data.active_user?.handle} />
+<Navigation {...data.active_user} />
 <main>
     <slot />
 </main>
@@ -17,6 +16,6 @@
         max-width: 64rem;
         margin: 2rem auto;
 
-        padding: 0 .75rem;
+        padding: 0 0.75rem;
     }
 </style>

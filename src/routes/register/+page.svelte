@@ -46,15 +46,14 @@
     }
 
     h1 {
-        font-weight: 400;
-        line-height: 1;
-        margin-top: 0;
-        margin-bottom: 1rem;
+        line-height: 1.2;
+        margin-top: .25rem;
+        margin-bottom: 1.5rem;
     }
 
     h2 {
         font-size: 1.25rem;
-        font-weight: 500;
-        font-style: italic;
+        font-weight: 700;
+        font-variation-settings: 'FLAR' 100;
     }
 </style>

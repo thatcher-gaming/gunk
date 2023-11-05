@@ -23,18 +23,18 @@
             display: block;
             font-variant: small-caps;
             font-weight: 600;
-            font-size: 1rem;
-            letter-spacing: -0.5px;
+            font-size: .9rem;
         }
 
         & small {
             margin-bottom: .1rem;
+            font-size: .8rem;
         }
 
         & input {
             background-color: white;
             border: 1px solid var(--colour-grey-300);
-            padding: 0.25rem 0.5rem;
+            padding: 0.4rem 0.6rem;
 
             &:focus-visible {
                 border: 1px solid var(--colour-primary-500);

@@ -1,18 +1,22 @@
 <script lang="ts">
     import Item from "./NavigationItem.svelte";
 
-    export let handle: string | undefined;
+    export let handle: string | undefined,
+        is_admin: boolean | undefined;
 </script>
 
 <nav>
     <div>
         <Item important href="/">ttc the forums<em>!!</em></Item>
-        <Item href="/sections">sectionz</Item>
         <Item href="/rooms">chat</Item>
-        <Item href="/threads">threadz</Item>
-        <Item href="/events">happeningz</Item>
+        <Item href="/search">search</Item>
+        <Item href="/events">happenings</Item>
+        <Item href="/more">more bullshit</Item>
         <div class="spacer" />
         {#if handle}
+            {#if is_admin}
+                <Item href="/admin">admin</Item>
+            {/if}
             <Item href="/its/{handle}">@{handle}</Item>
         {:else}
             <Item href="/login">login</Item>

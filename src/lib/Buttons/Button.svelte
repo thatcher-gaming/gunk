@@ -17,15 +17,18 @@
 
         display: flex;
         align-items: center;
+        gap: .25rem;
 
-        padding: 0.5rem 0.75rem;
+        height: max-content;
+        width: max-content;
+        padding: 0.6rem 0.85rem;
 
         background-color: var(--colour-primary-200);
-        outline: 1px solid var(--colour-primary-300);
+        border-radius: 4px;
 
         line-height: 1;
         font-size: 0.9rem;
-        font-weight: 600;
+        font-weight: 500;
 
         cursor: pointer;
         user-select: none;

@@ -1,7 +1,14 @@
 <script lang="ts">
     export let data;
 
+    import Tagline from "./_Tagline.svelte";
+    import SectionGrid from "./_SectionGrid.svelte";
 </script>
 
-{data.active_user?.handle}
-hello hello
+<svelte:head>
+    <title>ttc: the discord server: the forums</title>
+</svelte:head>
+
+<Tagline>holy moly</Tagline>
+
+<SectionGrid sections={data.sections} is_mod={data.active_user?.is_mod} />

@@ -18,7 +18,7 @@
 <style>
     a {
         text-decoration: none;
-        font-size: .9rem;
+        font-size: 0.8rem;
         font-weight: 500;
         white-space: nowrap;
         color: inherit;
@@ -26,8 +26,7 @@
         display: flex;
         align-items: center;
 
-        padding: 0.25rem 1rem;
-        padding-bottom: 7px;
+        padding: 0.4rem 1rem;
         width: max-content;
 
         user-select: none;
@@ -43,11 +42,11 @@
     }
 
     .selected {
-        background-color: var(--colour-grey-50);
+        background-color: white;
         color: var(--colour-primary-950);
 
         &:hover {
-            background-color: var(--colour-grey-50);
+            background-color: white;
         }
     }
 </style>

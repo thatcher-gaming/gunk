@@ -1,9 +1,15 @@
 import { User } from "$lib/Data/user";
 import { fail, redirect } from "@sveltejs/kit";
-import type { Actions } from "./$types";
+import type { Actions, PageServerLoad } from "./$types";
 import { z } from 'zod';
 import { fromZodError } from 'zod-validation-error';
 import { Session, token_cookie } from "$lib/Data/session";
+
+export const load: PageServerLoad = async ({locals}) => {
+    if (locals.active_user) {
+        throw redirect(302, "/");
+    }
+};
 
 const schema = z.object({
     username: z.string().min(1),
