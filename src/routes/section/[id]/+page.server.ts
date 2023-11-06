@@ -12,7 +12,7 @@ export const load: PageServerLoad = async ({ params: { id } }) => {
     const threads = section.get_threads();
 
     return {
-        section: structuredClone(section),
-        threads,
+        section: section.export(),
+        threads: threads.map(o => o.export()),
     };
 };

@@ -8,11 +8,16 @@ declare global {
 	namespace App {
 		// interface Error {}
 		interface Locals {
-			active_user?: ReturnType<Session.fetch_token_user>,
+			active_user?: {
+				id: string,
+				handle: string,
+				is_admin: boolean,
+				is_mod: boolean,
+			},
 		}
 		// interface PageData {}
 		// interface Platform {}
 	}
 }
 
-export {};
+export { };

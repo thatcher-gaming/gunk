@@ -55,6 +55,8 @@ CREATE TABLE post (
 
     content TEXT NOT NULL,
 
+    created TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
     FOREIGN KEY(thread_id) REFERENCES thread(id),
     FOREIGN KEY(author_id) REFERENCES user(id)
 ) STRICT;

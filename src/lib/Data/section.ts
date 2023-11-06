@@ -1,17 +1,17 @@
 import db from "$lib/db";
-import type { Thread } from "./thread";
+import { Thread, type ThreadData } from "./thread";
 
-type SectionType = Section;
+export interface SectionData {
+    id: number;
+    title: string;
+    desc: string;
+    icon: string;
+}
 
 export class Section {
-    constructor(props: SectionType) {
-        Object.assign(this, props);
-    }
+    constructor(public data: SectionData) { }
 
-    id!: number;
-    title!: string;
-    desc!: string;
-    icon!: string;
+    export = () => this.data;
 
     static fetch(id: string): Section | undefined {
         const stmt = db.prepare(`
@@ -20,7 +20,7 @@ export class Section {
             WHERE id = @id;
         `);
 
-        const section = stmt.get({ id }) as SectionType | undefined;
+        const section = stmt.get({ id }) as SectionData | undefined;
 
         return section && new Section(section);
     }
@@ -30,7 +30,7 @@ export class Section {
             SELECT id, title, desc, icon FROM section;
         `);
 
-        return stmt.all().map(o => new Section(o as SectionType));
+        return stmt.all().map(o => new Section(o as SectionData));
     }
 
     static create(props: {
@@ -46,20 +46,16 @@ export class Section {
         return stmt.run(props);
     }
 
-    // get_latest(): Thread {
-
-    // }
-
     get_threads(limit = 50): Thread[] {
         const stmt = db.prepare(`
-            SELECT id, title 
+            SELECT id, title, section_id
             FROM thread 
-            WHERE section_id = @id
+            WHERE section_id = ?
             LIMIT ${limit};
         `);
 
-        const res = stmt.all({ id: this.id }) as Thread[];
+        const res = stmt.all(String(this.data.id)) as ThreadData[];
 
-        return res;
+        return res.map(o => new Thread(o));
     }
 }
