@@ -111,6 +111,8 @@
     --colour-primary-800: var(--colour-orange-800);
     --colour-primary-900: var(--colour-orange-900);
     --colour-primary-950: var(--colour-orange-950);
+
+    --ease-out: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 /* Box sizing rules */

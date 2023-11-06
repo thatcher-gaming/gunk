@@ -29,6 +29,7 @@
         line-height: 1;
         font-size: 0.9rem;
         font-weight: 500;
+        white-space: nowrap;
 
         cursor: pointer;
         user-select: none;
