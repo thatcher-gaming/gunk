@@ -9,6 +9,6 @@
     <title>ttc: the discord server: the forums</title>
 </svelte:head>
 
-<Tagline>holy moly</Tagline>
+<Tagline>piss</Tagline>
 
 <SectionGrid sections={data.sections} is_mod={data.active_user?.is_mod} />
