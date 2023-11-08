@@ -33,12 +33,13 @@ export class Thread {
         FROM post P INNER JOIN user A
         ON P.author_id = A.id
         WHERE P.thread_id = ?; 
-    `);
+    `).expand();
 
     get_latest() {
         const post = Thread.getlatest_stmt.get(this.data.id) as {
-                content: string,
-            } | undefined;
+            post: { content: string },
+            user: { id: string, handle: string, avatar_path: string }
+        } | undefined;
 
         return post;
     }

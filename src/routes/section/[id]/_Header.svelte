@@ -1,10 +1,10 @@
 <script lang="ts">
     import Button from "$lib/Buttons/Button.svelte";
-    import type { Section } from "$lib/Data/section";
+    import type { SectionData } from "$lib/Data/section";
     import type { User } from "$lib/Data/user";
     import Plus from "~icons/ph/Plus";
 
-    export let section: Section,
+    export let section: SectionData,
         active_user: User | undefined = undefined;
 </script>
 

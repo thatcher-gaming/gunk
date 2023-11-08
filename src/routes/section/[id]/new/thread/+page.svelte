@@ -14,5 +14,5 @@
         <textarea name="content" />
     </FormField>
 
-    <Button>go wacky</Button>
+    <Button>New All</Button>
 </form>

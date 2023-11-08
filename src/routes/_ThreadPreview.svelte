@@ -1,10 +1,14 @@
 <script lang="ts">
     import type { PostData } from "$lib/Data/post";
-    import type { ThreadData } from "$lib/Data/thread";
+    import type { Thread, ThreadData } from "$lib/Data/thread";
 
-    export let thread: ThreadData, post: PostData & { handle: string };
+    export let thread: ThreadData,
+        post: ReturnType<Thread["get_latest"]>;
     const { section_id, id, title } = thread;
-    const { handle, content } = post;
+    const {
+        user: { handle },
+        post: { content },
+    } = post!;
 </script>
 
 <article>

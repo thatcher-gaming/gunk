@@ -1,17 +1,9 @@
 <script lang="ts">
     import Button from "$lib/Buttons/Button.svelte";
-    import type { PostData } from "$lib/Data/post";
-    import type { SectionData } from "$lib/Data/section";
-    import type { ThreadData } from "$lib/Data/thread";
+    import type { PageData } from "./$types";
     import SectionGridItem from "./_SectionGridItem.svelte";
 
-    export let sections: {
-            section: SectionData;
-            threads: {
-                thread: ThreadData;
-                post: PostData & { handle: string };
-            }[];
-        }[],
+    export let sections: PageData["sections"],
         is_mod: boolean = false;
 </script>
 

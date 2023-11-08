@@ -1,18 +1,12 @@
 <script lang="ts">
     import SectionHeader from "./_SectionHeader.svelte";
     import ThreadPreview from "./_ThreadPreview.svelte";
-
-    import type { PostData } from "$lib/Data/post";
-    import type { SectionData } from "$lib/Data/section";
-    import type { ThreadData } from "$lib/Data/thread";
-
+    
     import ArrowRight from "~icons/ph/ArrowRight";
+    import type { PageData } from "./$types";
 
-    export let section: SectionData,
-        threads: {
-            thread: ThreadData;
-            post: PostData & { handle: string };
-        }[];
+    export let section: PageData["sections"][0]["section"],
+        threads: PageData["sections"][0]["threads"];
     const { id } = section;
 </script>
 
