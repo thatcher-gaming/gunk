@@ -12,7 +12,7 @@ export const load: PageServerLoad = async ({locals}) => {
 };
 
 const schema = z.object({
-    username: z.string().min(1),
+    handle: z.string().min(1),
     email: z.string().email(),
     password: z.string().min(8),
 }).required();
@@ -27,7 +27,7 @@ export const actions: Actions = {
             return fail(400, { error: validationError.message })
         }
 
-        const { email, username: handle, password } = result.data;
+        const { email, handle, password } = result.data;
 
         let id;
 

@@ -17,6 +17,9 @@ export interface UserData {
 }
 
 export class User {
+    constructor(public data: UserData) { }
+    export = () => this.data;
+
     static fetch_by_id(id: string) {
         const stmt = db.prepare(`
             SELECT ${unsensitive_fields.join(", ")}
@@ -31,18 +34,18 @@ export class User {
         return data;
     }
 
-    static fetch_by_handle(handle: string): UserData | undefined {
-        const stmt = db.prepare(`
-                SELECT ${unsensitive_fields.join(", ")}
-                FROM user
-                WHERE handle = ?;
-            `);
+    static fetch_handle_stmt = db.prepare(`
+        SELECT ${unsensitive_fields.join(", ")}
+        FROM user
+        WHERE handle = ?;
+    `);
 
-        let data = stmt.get(handle) as UserData | undefined;
+    static fetch_by_handle(handle: string): User | undefined {
+        let data = User.fetch_handle_stmt.get(handle) as UserData | undefined;
         if (!data) return;
         data = User.process_db_result(data)
 
-        return data;
+        return data && new User(data);
     }
 
     private static process_db_result(data: any) {
@@ -54,8 +57,8 @@ export class User {
 
     private static email_is_used(email: string): boolean {
         const stmt = db.prepare(`
-                SELECT EXISTS(SELECT 1 FROM user WHERE email = ?);
-            `);
+            SELECT EXISTS(SELECT 1 FROM user WHERE email = ?);
+        `);
 
         stmt.pluck();
         const result = stmt.get(email);
@@ -105,18 +108,22 @@ export class User {
         return id;
     }
 
-    static async check_password(
-        user_id: string, password: string
-    ): Promise<boolean> {
-        const stmt = db.prepare(`
-                SELECT password_hash
-                FROM user
-                WHERE id = ?
-            `);
+    static password_check_stmt = db.prepare(`
+        SELECT password_hash
+        FROM user
+        WHERE id = ?
+    `).pluck();
 
-        const hash = stmt.get(user_id) as string;
-        const result = await argon2.verify(hash, password);
+    static async check_password(
+        user_id: string, plain: string
+    ): Promise<boolean> {
+        const hash = this.password_check_stmt.get(user_id) as string;
+        const result = await argon2.verify(hash, plain);
 
         return result
+    }
+
+    async check_password(plain: string): Promise<boolean> {
+        return User.check_password(this.data.id, plain);
     }
 }

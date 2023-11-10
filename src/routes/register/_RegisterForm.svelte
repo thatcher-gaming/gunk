@@ -5,7 +5,7 @@
 
 <form method="post">
     <FormInput label="Username">
-        <input name="username" type="text" placeholder="the_grungler" />
+        <input name="handle" type="text" placeholder="the_grungler" />
     </FormInput>
     <FormInput label="Email">
         <input name="email" type="email" placeholder="me@gmail.gov" />

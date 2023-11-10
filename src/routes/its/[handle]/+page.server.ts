@@ -7,5 +7,5 @@ export const load: PageServerLoad = async ({ params: { handle } }) => {
 
     if (!user) throw error(404);
 
-    return { user }
+    return { user: user.export() }
 };

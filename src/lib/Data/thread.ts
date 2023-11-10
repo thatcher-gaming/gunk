@@ -8,6 +8,11 @@ export interface ThreadData {
     title: string;
 }
 
+export interface ThreadDataDeluxe extends ThreadData {
+    post_count: number,
+}
+
+
 export class Thread {
     constructor(public data: ThreadData) { }
 
@@ -18,15 +23,25 @@ export class Thread {
         VALUES(@id, @section_id, @title);
     `);
 
-    static create({ title, section_id }: {
+    static create(params: {
         title: string,
         section_id: string,
     }) {
         const id = nanoid();
-        this.create_stmt.run({ id, section_id, title });
+        this.create_stmt.run({ id, ...params });
 
-        return new Thread({ id, section_id, title });
+        return new Thread({ id, ...params });
     };
+
+    static fetch_stmt = db.prepare(`
+        SELECT id, section_id, title
+        FROM thread
+        WHERE id = ?;
+    `);
+
+    static fetch(id: string) {
+        return this.fetch_stmt.get(id) as ThreadData | undefined;
+    }
 
     static getlatest_stmt = db.prepare(`
         SELECT P.content, A.id, A.handle, A.avatar_path
@@ -35,7 +50,7 @@ export class Thread {
         WHERE P.thread_id = ?; 
     `).expand();
 
-    get_latest() {
+    get_latest_post() {
         const post = Thread.getlatest_stmt.get(this.data.id) as {
             post: { content: string },
             user: { id: string, handle: string, avatar_path: string }
@@ -43,7 +58,6 @@ export class Thread {
 
         return post;
     }
-
 
     add_post(params: {
         author_id: string,

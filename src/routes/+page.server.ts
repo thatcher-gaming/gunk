@@ -7,7 +7,7 @@ let sections: {
     section: SectionData;
     threads: {
         thread: ThreadData;
-        post: ReturnType<Thread["get_latest"]> | undefined;
+        post: ReturnType<Thread["get_latest_post"]> | undefined;
     }[];
 }[];
 
@@ -23,7 +23,7 @@ export const load: PageServerLoad = async () => {
             ttl: Date.now(),
             section: sect.export(),
             threads: sect.get_threads(2)
-                .map(t => ({ thread: t.export(), post: t.get_latest() }))
+                .map(t => ({ thread: t.export(), post: t.get_latest_post() }))
         }));
 
         expires = Date.now() + ttl * 1000;

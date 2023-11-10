@@ -8,6 +8,8 @@ export interface SectionData {
     icon: string;
 }
 
+const section_fields = "id, title, desc, icon";
+
 export class Section {
     constructor(public data: SectionData) { }
 
@@ -15,7 +17,7 @@ export class Section {
 
     static fetch(id: string): Section | undefined {
         const stmt = db.prepare(`
-            SELECT id, title, desc, icon 
+            SELECT ${section_fields} 
             FROM section
             WHERE id = @id;
         `);
@@ -27,7 +29,7 @@ export class Section {
 
     static fetch_all(): Section[] {
         const stmt = db.prepare(`
-            SELECT id, title, desc, icon FROM section;
+            SELECT ${section_fields} FROM section;
         `);
 
         return stmt.all().map(o => new Section(o as SectionData));
@@ -46,15 +48,17 @@ export class Section {
         return stmt.run(props);
     }
 
+    private static get_latest_stmt = db.prepare(`
+        SELECT id, title, section_id
+        FROM thread 
+        WHERE section_id = @id
+        LIMIT @limit;
+    `);
     get_threads(limit = 50): Thread[] {
-        const stmt = db.prepare(`
-            SELECT id, title, section_id
-            FROM thread 
-            WHERE section_id = ?
-            LIMIT ${limit};
-        `);
-
-        const res = stmt.all(String(this.data.id)) as ThreadData[];
+        const res = Section.get_latest_stmt.all({ 
+            limit,
+            id: String(this.data.id)
+        }) as ThreadData[];
 
         return res.map(o => new Thread(o));
     }
